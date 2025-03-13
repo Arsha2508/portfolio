@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsha GS | HR Professional</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #8e44ad;
+            --secondary-color: #9b59b6;
+            --dark-color: #34495e;
+            --light-color: #f5f6fa;
+            --accent-color: #d35400;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 8px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-color);
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .navbar .active {
+            color: var(--primary-color);
+        }
+        
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(142, 68, 173, 0.8), rgba(211, 84, 0, 0.8));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.05)"/><circle cx="70" cy="70" r="40" fill="rgba(255,255,255,0.05)"/><circle cx="10" cy="70" r="20" fill="rgba(255,255,255,0.05)"/></svg>');
+            animation: rotate 30s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 150px 0;
+        }
+        
+        .hero-text h1 {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero-text p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .profile-img-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 8px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .profile-img-container:hover .profile-img {
+            transform: scale(1.05);
+        }
+        
+        .upload-photo {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            opacity: 0;
+        }
+        
+        .profile-img-container:hover .upload-photo {
+            opacity: 1;
+        }
+        
+        .btn-custom {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(142, 68, 173, 0.4);
+        }
+        
+        .btn-custom:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(142, 68, 173, 0.6);
+            color: white;
+        }
+        
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            margin-bottom: 15px;
+        }
+        
+        .info-item i {
+            width: 30px;
+            color: var(--primary-color);
+        }
+        
+        .skill-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            height: 100%;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(142, 68, 173, 0.1);
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        
+        .skill-icon i {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+        
+        .skill-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .skill-list {
+            padding-left: 20px;
+        }
+        
+        .skill-list li {
+            margin-bottom: 5px;
+            color: #666;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: #840095;
+            border: 4px solid var(--primary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+        
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+        
+        .right::after {
+            left: -16px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-title {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .timeline-description {
+            color: #666;
+        }
+        
+        .project-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-img i {
+            font-size: 50px;
+            color: var(--primary-color);
+        }
+        
+        .project-body {
+            padding: 25px;
+        }
+        
+        .project-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .project-description {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .certification-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .certification-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .certification-provider {
+            color: #777;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(142, 68, 173, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .contact-icon i {
+            font-size: 20px;
+            color: var(--primary-color);
+        }
+        
+        .contact-text h5 {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .contact-text p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        
+        .contact-form {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-control {
+            height: 50px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        
+        textarea.form-control {
+            height: 150px;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(142, 68, 173, 0.25);
+        }
+        
+        .social-links {
+            margin-top: 30px;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 991.98px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .profile-img-container {
+                width: 250px;
+                height: 250px;
+                margin-top: 30px;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-container::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+            
+            .left::after, .right::after {
+                left: 15px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .hero-content {
+                padding: 100px 0;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-text p {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Animation styles */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">ARSHA GS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#certifications">Certifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-text" data-aos="fade-right" data-aos-duration="1000">
+                    <h1>Arsha G S</h1>
+                    <p>HR Professional with expertise in recruitment, employee engagement, and organizational development.</p>
+                    
+                    <a href="assets/Arsha GS_Resume.pdf" download="Arsha_GS_Resume.pdf" class="btn btn-custom">
+                        <i class="fas fa-download me-2"></i> Download Resume
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="profile-img-container">
+                        <img id="profile-img" src="img/arsha.jpg" alt="Arsha GS" class="profile-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 about-text" data-aos="fade-right" data-aos-duration="1000">
+                    <p>
+                        I am a motivated HR professional pursuing my MBA at Army Institute of Management, Kolkata. With a strong foundation in human resource management and a background in technology, I aim to bridge the gap between people and organizational objectives.
+                    </p>
+                    <p>
+                        My passion lies in fostering positive workplace cultures, enhancing employee engagement, and implementing effective recruitment strategies that align with business growth objectives. I believe in continuous learning and adapting to the evolving HR landscape.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/arsha-gs-kdl25" class="social-icon" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:arshasgopan2508@gmail.com" class="social-icon">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="info-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>MBA in Human Resource, Army Institute of Management, Kolkata (Expected 2026)</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>B.Tech, APJ Abdul Kalam Technological University, Kerala (2019-2023)</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 7560836356</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>arshasgopan2508@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kollam, Kerala</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-language"></i>
+                        <span>Malayalam, Hindi, Tamil, English</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-palette"></i>
+                        <span>Drawing, Dancing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4 class="skill-title">Technical Skills</h4>
+                        <ul class="skill-list">
+                            <li>Microsoft Office Suite (Excel, Word, PowerPoint)</li>
+                            <li>Talent Acquisition</li>
+                            <li>C Programming (Basics)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="skill-title">Soft Skills</h4>
+                        <ul class="skill-list">
+                            <li>Time Management</li>
+                            <li>Adaptability</li>
+                            <li>Leadership</li>
+                            <li>Team Collaboration</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h4 class="skill-title">HR Expertise</h4>
+                        <ul class="skill-list">
+                            <li>Recruitment</li>
+                            <li>Employee Engagement</li>
+                            <li>Organizational Development</li>
+                            <li>Workplace Culture Management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education & Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-container left" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Expected 2026</div>
+                        <h4 class="timeline-title">Master of Business Administration</h4>
+                        <p class="timeline-description">Army Institute of Management, Kolkata<br>Specialization: Major - Human Resource — Minor - Operations</p>
+                    </div>
+                </div>
+                <div class="timeline-container right" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2019 - 2023</div>
+                        <h4 class="timeline-title">Bachelor of Technology</h4>
+                        <p class="timeline-description">APJ Abdul Kalam Technological University, Kerala<br>Percentage: 69.5%</p>
+                    </div>
+                </div>
+                <div class="timeline-container left" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2017 - 2019</div>
+                        <h4 class="timeline-title">Higher Secondary</h4>
+                        <p class="timeline-description">Kerala State Board<br>Percentage: 87.2%</p>
+                    </div>
+                </div>
+                <div class="timeline-container right" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="timeline-content">
+                        <div class="timeline-date">May 2022 - Jun 2022</div>
+                        <h4 class="timeline-title">Communication Intern</h4>
+                        <p class="timeline-description">LIFE Mission Kerala<br>• Assisted in housing projects for underprivileged communities through data analysis and project coordination<br>• Interacted with 100+ individuals to gather feedback and ensure effective project implementation</p>
+                    </div>
+                </div>
+                <div class="timeline-container left" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Nov 2021</div>
+                        <h4 class="timeline-title">Intern</h4>
+                        <p class="timeline-description">InQbe Innovations, Kochi, Kerala<br>• Explored IoT solutions and their practical market applications<br>• Gained insights into innovative technologies and their implementation strategies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mx-auto" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="project-body">
+                            <h4 class="project-title">Automatic Diaper Disposal System</h4>
+                            <p class="project-description">
+                                Developed an efficient and hygienic automatic diaper disposal system that utilizes sensors and smart mechanisms to minimize human intervention and maintain cleanliness. Conducted a comprehensive survey involving over 150 families to gather valuable insights for the design.
+                            </p>
+                            <div class="d-flex justify-content-between">
+                                <span class="badge bg-primary">Technology</span>
+                                <span class="badge bg-secondary">Research</span>
+                                <span class="badge bg-success">Innovation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications & Achievements</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="certification-card">
+                        <h4 class="certification-title">Human Resource Management</h4>
+                        <p class="certification-provider">Great Learning Academy, Nov 2024</p>
+                        <p>Comprehensive certification covering HR principles, recruitment strategies, performance management, and organizational development.</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="certification-card">
+                        <h4 class="certification-title">MS Office and Internet Services</h4>
+                        <p class="certification-provider">Kerala State Rural Women's Electronics Industrial Co-operative Federation Limited, January 2024</p>
+                        <p>Proficiency in Microsoft Office applications including Word, Excel, PowerPoint, and internet services.</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="certification-card">
+                        <h4 class="certification-title">Certificate of Appreciation</h4>
+                        <p class="certification-provider">YIP 5.0 Workshop (Kerala Start-up Mission), February 2023</p>
+                        <p>Recognized for valuable contributions to the workshop, interacting with 50+ government officials.</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                    <div class="certification-card">
+                        <h4 class="certification-title">Employability Skill Programme</h4>
+                        <p class="certification-provider">Mahindra Pride Classroom, Naandi Foundation, 2022-2023</p>
+                        <p>Enhanced employability skills including communication, professional etiquette, and workplace readiness.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership & Responsibilities Section -->
+    <section id="leadership" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Leadership & Responsibilities</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h4 class="skill-title">IEEE Student Branch</h4>
+                        <ul class="skill-list">
+                            <li>Vice Chairperson of IEEE SB College of Engineering Pathanapuram</li>
+                            <li>Design Lead of IEEE SB College of Engineering Pathanapuram</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h4 class="skill-title">Academic Leadership</h4>
+                        <ul class="skill-list">
+                            <li>Class Representative of College of Engineering Pathanapuram</li>
+                            <li>IEDC Student Member</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h4 class="skill-title">Social Engagement</h4>
+                        <ul class="skill-list">
+                            <li>NSS Student Volunteer</li>
+                            <li>Participated in community service and social awareness campaigns</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>Phone</h5>
+                                <p>+91 7560836356</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>Email</h5>
+                                <p>arshasgopan2508@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>Location</h5>
+                                <p>Kollam, Kerala, India</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>LinkedIn</h5>
+                                <p><a href="https://www.linkedin.com/in/arsha-gs-kdl25" target="_blank" class="text-decoration-none">https://www.linkedin.com/in/arsha-gs-kdl25</a></p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-7" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Subject" required>
+                            </div>
+                            <div class="mb-4">
+                                <textarea class="form-control" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-custom w-100">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Arsha GS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        // Initialize AOS Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init();
+            
+            // Navbar Scroll Effect
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Smooth Scrolling for Navigation Links
+            document.querySelectorAll('a.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.hash !== '') {
+                        e.preventDefault();
+                        const hash = this.hash;
+                        const targetElement = document.querySelector(hash);
+                        
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active nav link
+                        document.querySelectorAll('.nav-link').forEach(navLink => {
+                            navLink.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    }
+                });
+            });
+            
+            // Update active nav link on scroll
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.scrollY;
+                
+                document.querySelectorAll('section').forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        document.querySelectorAll('.nav-link').forEach(navLink => {
+                            navLink.classList.remove('active');
+                            if (navLink.getAttribute('href') === '#' + sectionId) {
+                                navLink.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            });
+            
+            
+            // Contact Form Submission
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // In a real application, you would send the form data to a server
+                // For this demo, we'll just show a success message
+                alert('Thank you for your message. I will get back to you soon!');
+                contactForm.reset();
+            });
+            
+            // Fade-in animation on scroll
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 100) {
+                        element.classList.add('active');
+                    }
+                });
+            }
+            
+            // Initial check
+            checkFade();
+            
+            // Check on scroll
+            window.addEventListener('scroll', checkFade);
+        });
+    </script>
+</body>
+</html>
